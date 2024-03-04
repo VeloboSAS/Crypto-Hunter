@@ -1,9 +1,11 @@
-import Banner from "../Components/Banner";
+import Banner from "../Components/Banner/Banner";
+import CoinsTable from "../Components/CoinsTable";
 
 function HomePage() {
   return (
     <>
       <Banner />
+      <CoinsTable/>
     </>
   );
 }
