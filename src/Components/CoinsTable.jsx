@@ -94,6 +94,7 @@ export default function CoinsTable() {
         </Typography>
         <TextField
           // label="Search For a Crypto Currency.."
+          color='secondary'
           variant="outlined"
           style={{
             marginBottom: 20,
@@ -134,6 +135,7 @@ export default function CoinsTable() {
                     return (
                       <TableRow
                         onClick={() => navigate(`/coins/${row.id}`)}
+
                         className={classes.row}
                         key={row.name}
                       >

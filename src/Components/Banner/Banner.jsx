@@ -8,10 +8,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(./banner2.jpg)",
   },
   bannerContent: {
-    height: 400,
+    height: '100vh',
     display: "flex",
     flexDirection: "column",
-    paddingTop: 50,
+    paddingTop: 70,
     justifyContent: "space-around",
 
   },
@@ -34,7 +34,7 @@ const Banner = () => {
             variant="h2"
             style={{
               fontWeight: "bold",
-              marginBottom: 15,
+              marginBottom: 35,
               fontFamily: "Montserrat",
             }}
           >
