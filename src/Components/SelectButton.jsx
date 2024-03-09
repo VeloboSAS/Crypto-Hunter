@@ -5,27 +5,26 @@ const useStyles = makeStyles({
     border: "1px solid gold",
     borderRadius: 5,
     padding: 10,
-    paddingLeft: 20,
+    paddingLeft: 10,
     paddingRight: 20,
     fontFamily: "Montserrat",
     cursor: "pointer",
-    // backgroundColor: selected ? "gold" : "",
-    // color: selected ? "black" : "",
-    // fontWeight: selected ? 700 : 500,
-    // "&:hover": {
-    //   backgroundColor: "gold",
-    //   color: "black",
-    // },
+    "&:hover": {
+      backgroundColor: "gold",
+      color: "black",
+    },
     width: "22%",
-    //   margin: 5,
+      textAlign: 'center'
   },
 });
 
 const SelectButton = ({ children, selected, onClick }) => {
+
   const classes = useStyles();
 
   return (
-    <span onClick={onClick} className={classes.selectbutton}>
+    <span onClick={onClick} className={classes.selectbutton} style={{backgroundColor: selected ? "gold" : "",
+    color: selected ? "black" : "", fontWeight: selected ? 700 : 500,}}>
       {children}
     </span>
   );

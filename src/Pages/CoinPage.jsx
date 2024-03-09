@@ -4,8 +4,7 @@ import { useParams } from "react-router-dom";
 import { SingleCoin } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import ReactHtmlParser from "react-html-parser";
-// import CoinInfo from "../Components/CoinInfo";
-import { styled } from "@mui/material/styles";
+import CoinInfo from "../Components/CoinInfo";
 import { numberWithCommas } from "../Components/CoinsTable";
 import {
   LinearProgress,
@@ -157,8 +156,7 @@ const Component = () => {
           </span>
         </div>
       </div>
-
-      {/* <CoinInfo coin={coin} /> */}
+      <CoinInfo coin={coin} />
     </div>
   );
 };
