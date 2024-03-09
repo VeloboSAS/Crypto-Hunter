@@ -8,7 +8,6 @@ import {
   LinearProgress,
   ThemeProvider,
   Typography,
-  TextField,
   TableBody,
   TableRow,
   TableHead,
@@ -20,6 +19,7 @@ import axios from "axios";
 import { CoinList } from "../config/api";
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
+import { Search } from "./Search";
 
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -64,8 +64,6 @@ export default function CoinsTable() {
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
-    console.log(data);
-
     setCoins(data);
     setLoading(false);
   };
@@ -92,17 +90,11 @@ export default function CoinsTable() {
         >
           Cryptocurrency Prices by Market Cap
         </Typography>
-        <TextField
-          // label="Search For a Crypto Currency.."
-          color='secondary'
-          variant="outlined"
-          style={{
-            marginBottom: 20,
-            width: "100%",
-            color: "white",
-            border: "1px solid #ced4da",
+        <Search
+          value={search}
+          onSubmit={(value) => {
+            setSearch(value);
           }}
-          onChange={(e) => setSearch(e.target.value)}
         />
         <TableContainer component={Paper}>
           {loading ? (
@@ -135,7 +127,6 @@ export default function CoinsTable() {
                     return (
                       <TableRow
                         onClick={() => navigate(`/coins/${row.id}`)}
-
                         className={classes.row}
                         key={row.name}
                       >
@@ -160,17 +151,15 @@ export default function CoinsTable() {
                               style={{
                                 textTransform: "uppercase",
                                 fontSize: 22,
-                                color: 'white'
+                                color: "white",
                               }}
                             >
                               {row.symbol}
                             </span>
-                            <span style={{ color: "white" }}>
-                              {row.name}
-                            </span>
+                            <span style={{ color: "white" }}>{row.name}</span>
                           </div>
                         </TableCell>
-                        <TableCell align="right" style={{color: 'white'}}>
+                        <TableCell align="right" style={{ color: "white" }}>
                           {symbol}{" "}
                           {numberWithCommas(row.current_price.toFixed(2))}
                         </TableCell>
@@ -184,7 +173,7 @@ export default function CoinsTable() {
                           {profit && "+"}
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
-                        <TableCell align="right" style={{color: 'white'}}>
+                        <TableCell align="right" style={{ color: "white" }}>
                           {symbol}{" "}
                           {numberWithCommas(
                             row.market_cap.toString().slice(0, -6)

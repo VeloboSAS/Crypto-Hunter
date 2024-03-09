@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 import { Container, Typography } from "@mui/material";
 import Carousel from "./Carousel";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   banner: {
     backgroundImage: "url(./banner2.jpg)",
   },
@@ -11,13 +11,13 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
     display: "flex",
     flexDirection: "column",
-    paddingTop: 70,
+    paddingTop: 10,
     justifyContent: "space-around",
 
   },
   tagline: {
     display: "flex",
-    height: "40%",
+    height: "70%",
     flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",

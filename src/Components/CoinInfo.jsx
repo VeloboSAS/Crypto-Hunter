@@ -5,6 +5,7 @@ import { Line } from "react-chartjs-2";
 import { CircularProgress, createTheme, ThemeProvider } from "@mui/material";
 import SelectButton from "./SelectButton";
 import { chartDays } from "../config/data";
+import Chart from 'chart.js/auto';
 import { CryptoState } from "../CryptoContext";
 import { makeStyles } from "@mui/styles";
 
